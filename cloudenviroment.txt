@@ -1,0 +1,17 @@
+//// First create vcn for the compartment, check that the following ingress rules are enabled
+// 0.0.0.0/0	TCP	All	22		TCP traffic for ports: 22 SSH Remote Login Protocol
+// 0.0.0.0/0	ICMP			3, 4	ICMP traffic for: 3, 4 Destination Unreachable: Fragmentation Needed and Don't Fragment was Set	
+// 10.0.0.0/16	ICMP			3	ICMP traffic for: 3 Destination Unreachable
+// 0.0.0.0/0	TCP	All	80		TCP traffic for ports: 80
+// 0.0.0.0/0	TCP	All	443		TCP traffic for ports: 443 HTTPS
+
+//// Create Compute instance
+// Image = Ununtu 22.04
+// Shape Micro instance 
+// Boot Volume 50gb VPU 10 
+// Else on default settings
+// Upload private key into cloud shell so we can ssh
+
+//// Using the chmod command with the argument "400" grants only the owner or user of the file read permission while restricting everyone else entirely.
+// chmod 400 and then your private key 
+// ssh -i (Private Key) Ubuntu@(Public IP)

@@ -1,0 +1,124 @@
+1  ssh
+    2  sudo -s
+    3  htop
+    4  cd /var/www/html
+    5  ls
+    6  cd ..
+    7  ls
+    8  cd test1/
+    9  ls
+   10  vimm styles.css 
+   11  sudo vim styles.css 
+   12  htop
+   13  cd /etc/apache2/sites-available/
+   14  ls
+   15  vim non
+   16  sudo -s
+   17  ls
+   18  cd /var/www
+   19  ls
+   20  cd test
+   21  ls test1/
+   22  cd /etc/apache2/sites-available/
+   23  ls
+   24  sudo vim default-ssl.conf 
+   25  cd -- 
+   26  ls
+   27  cd /etc/apache2/sites-available/
+   28  sudo vim default-ssl.conf 
+   29  ls
+   30  cd --
+   31  sudo apt update
+   32  sudo apt install snapd
+   33  snap install core: snap refresh core 
+   34  sudo snap install core: snap refresh core
+   35  s
+   36  cd /var/www
+   37  ls
+   38  cd test1/
+   39  ls
+   40  vim styles.css 
+   41  snap instal; sanprefresh core
+   42  snap instal; sanp refresh core
+   43  sudo snap instal; sanp refresh core
+   44  sudo apt install snapd
+   45  sudo snap install; sanp refresh core
+   46  snap install; snap refresh core
+   47  sudo snap install; snap refresh core
+   48  sudo snap install --classic certbot
+   49  sudo ln -s /snap/bin/certbot /usr/bin/certbot
+   50  sudo certbot --apache
+   51  ls
+   52  sudo certbot --apache
+   53  crontab -l
+   54  systemctl list-timers
+   55  ls /etc/systemd/system/snap.renew.*
+   56  ls /etc/systemd/system/snap.certbot.renew.*
+   57  vim 
+   58  Type `help` for more info.
+   59  diegoarras@cloudshell:~ (mx-queretaro-1)$ ls
+   60  malpa-agroquimica.key  ssh-key-2024-03-021.key  ssh-key-2024-05-21.key
+   61  diegoarras@cloudshell:~ (mx-queretaro-1)$ ssh -i  ssh-key-2024-05-21.key ubuntu@159.54.149.76
+   62  FIPS mode initialized
+   63  Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 6.5.0-1023-oracle x86_64)
+   64  Expanded Security Maintenance for Applications is not enabled.
+   65  0 updates can be applied immediately.
+   66  Enable ESM Apps to receive additional future security updates.
+   67  See https://ubuntu.com/esm or run: sudo pro status
+   68  Last login: Thu May 23 03:44:19 2024 from 140.84.179.214
+   69  ubuntu@gymwear:~$ ls
+   70  ubuntu@gymwear:~$ sudo certbot --apache
+   71  Saving debug log to /var/log/letsencrypt/letsencrypt.log
+   72  Enter email address (used for urgent renewal and security notices)
+   73  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   74  Please read the Terms of Service at
+   75  https://letsencrypt.org/documents/LE-SA-v1.4-April-3-2024.pdf. You must agree in
+   76  order to register with the ACME server. Do you agree?
+   77  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   78  (Y)es/(N)o: y
+   79  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   80  Would you be willing, once your first certificate is successfully issued, to
+   81  share your email address with the Electronic Frontier Foundation, a founding
+   82  partner of the Let's Encrypt project and the non-profit organization that
+   83  develops Certbot? We'd like to send you email about our work encrypting the web,
+   84  EFF news, campaigns, and ways to support digital freedom.
+   85  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   86  (Y)es/(N)o: n
+   87  Account registered.
+   88  Which names would you like to activate HTTPS for?
+   89  We recommend selecting either all domains, or all domains in a VirtualHost/server block.
+   90  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   91  1: gymnwear.com
+   92  2: www.gymnwear.com
+   93  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   94  Select the appropriate numbers separated by commas and/or spaces, or leave input
+   95  blank to select all options shown (Enter 'c' to cancel): 
+   96  Requesting a certificate for gymnwear.com and www.gymnwear.com
+   97  Successfully received certificate.
+   98  Certificate is saved at: /etc/letsencrypt/live/gymnwear.com/fullchain.pem
+   99  Key is saved at:         /etc/letsencrypt/live/gymnwear.com/privkey.pem
+  100  This certificate expires on 2024-08-21.
+  101  These files will be updated when the certificate renews.
+  102  Certbot has set up a scheduled task to automatically renew this certificate in the background.
+  103  Deploying certificate
+  104  Successfully deployed certificate for gymnwear.com to /etc/apache2/sites-available/test1-le-ssl.conf
+  105  Successfully deployed certificate for www.gymnwear.com to /etc/apache2/sites-available/test1-le-ssl.conf
+  106  Congratulations! You have successfully enabled HTTPS on https://gymnwear.com and https://www.gymnwear.com
+  107  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  108  If you like Certbot, please consider supporting our work by:
+  109  ls /etc/systemd/system/snap.certbot.renew.*
+  110  vim /etc/systemd/system/snap.certbot.renew.timer 
+  111  ls
+  112  vim .htaccess
+  113  vim /etc/apache2/sites-available/000-default.conf 
+  114  sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 80 -j ACCEPT
+  115  sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 443 -j ACCEPT
+  116  sudo netfilter-persistent save
+
+
+ubuntu@gymwear:~$ 
+
+sudo systemctl restart apache2
+cd /etc/apache2/sites-available/
+a2ensite 
+a2enmod

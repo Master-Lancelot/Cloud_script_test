@@ -1,0 +1,47 @@
+// Best Practices
+sudo apt update
+sudo apt upgrade 
+// Open Ports HTTP 80 HTTPS 443
+sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 80 -j ACCEPT
+sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 443 -j ACCEPT
+sudo netfilter-persistent save
+
+// Intall Enviroment LAMP
+//sudo apt install apache2 mysql-server php-mysql 
+sudo apt install apache2
+sudo apt install mysql-server
+sudo mysql_secure_installation
+sudo apt install php-mysql
+
+//Prepare Mysql Enviroment // Test Password: Omegle11!
+CREATE USER 'username'@'localhost' IDENTIFIED BY 'Password';
+GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost';
+CREATE DATABASE wpdb;
+FLUSH PRIVILEGES;
+
+
+// Access where the Config Files are
+cd /etc/apache2/sites-available
+sudo a2ensite *
+sudo service apache2 reload
+
+sudo a2enmod php7.4
+
+
+
+//Git clone (link de github)
+
+
+//Configure the Config file from the project to hide it
+Sudo vim "configfilename"
+<?php
+return [
+    'servername' => getenv('DB_HOST'),
+    'username' => getenv('DB_USER'),
+    'password' => getenv('DB_PASS'),
+    'dbname' => getenv('DB_NAME'),
+];
+?>
+
+//Habilitar 
+Habilitar el .htacces
